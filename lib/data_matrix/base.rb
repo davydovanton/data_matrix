@@ -9,6 +9,8 @@ module DataMatrix
       end
     end
 
+    EMPTY_STRING = ''.freeze
+
     attr_reader :object, :data
 
     def initialize(object)
@@ -26,7 +28,7 @@ module DataMatrix
       if object.respond_to?(attr)
         object.send(attr)
       else
-        ''
+        EMPTY_STRING
       end
     end
   end
