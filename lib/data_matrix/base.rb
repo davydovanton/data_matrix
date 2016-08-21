@@ -5,7 +5,7 @@ module DataMatrix
 
       def column(attribute)
         @attributes ||= []
-        @attributes << attribute
+        @attributes << attribute.to_sym
       end
     end
 
@@ -18,7 +18,15 @@ module DataMatrix
 
     def compile
       self.class.attributes.each do |attr|
-        data << [attr, object.send(attr)]
+        data << [attr, call_attribute(attr)]
+      end
+    end
+
+    def call_attribute(attr)
+      if object.respond_to?(attr)
+        object.send(attr)
+      else
+        ''
       end
     end
   end

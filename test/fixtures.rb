@@ -11,4 +11,5 @@ end
 class UserMatrix < DataMatrix::Base
   column :name
   column :email
+  column 'last_name'
 end
