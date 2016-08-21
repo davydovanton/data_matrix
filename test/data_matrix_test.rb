@@ -1,11 +1,7 @@
 require 'test_helper'
 
-class DataMatrixTest < Minitest::Test
-  def test_that_it_has_a_version_number
+describe DataMatrix do
+  it 'has a version number' do
     refute_nil ::DataMatrix::VERSION
-  end
-
-  def test_it_does_something_useful
-    assert false
   end
 end
