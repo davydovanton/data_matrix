@@ -3,9 +3,9 @@ module DataMatrix
     class << self
       attr_reader :attributes
 
-      def column(attribute)
-        @attributes ||= []
-        @attributes << attribute.to_sym
+      def column(attribute, options = {})
+        @attributes ||= {}
+        @attributes[attribute.to_sym] = options[:title]
       end
     end
 
@@ -17,8 +17,8 @@ module DataMatrix
     end
 
     def compile
-      self.class.attributes.each do |attr|
-        data << [attr, call_attribute(attr)]
+      self.class.attributes.each do |attr, title|
+        data << { column: attr, value: call_attribute(attr), title: title }
       end
     end
 

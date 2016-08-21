@@ -18,11 +18,12 @@ Or install it yourself as:
     $ gem install data_matrix
 
 ## Usage
-Create a Matrix class:
+Create a Matrix class. Also you can use `:title` option for setting special title:
 ``` ruby
 class UserMatrix < DataMatrix::Base
-  column :name
+  column :name, title: 'First name'
   column :email
+  column 'address'
 end
 ```
 

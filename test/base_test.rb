@@ -7,14 +7,33 @@ describe DataMatrix::Base do
 
   describe '::column' do
     it 'creates array of using attributes' do
-      UserMatrix.attributes.must_equal %i[name email last_name]
+      UserMatrix.attributes.must_equal({ name: nil, email: nil, last_name: nil })
+    end
+
+    describe 'with title option' do
+      it 'creates array of using attributes' do
+        UserTitledMatrix.attributes.must_equal({ name: 'First name', email: nil, last_name: nil })
+      end
     end
   end
 
   describe '#compile' do
     it 'generates array of attributes' do
       user_matrix.compile
-      user_matrix.data.must_equal [[:name, 'Anton'], [:email, 'test@site.com'], [:last_name, '']]
+      user_matrix.data.must_equal [{ column: :name, value: 'Anton', title: nil },
+                                   { column: :email, value: 'test@site.com', title: nil },
+                                   { column: :last_name, value: '', title: nil }]
+    end
+
+    describe 'with title option' do
+      let(:user_matrix) { UserTitledMatrix.new(user) }
+
+      it 'generates array of attributes' do
+        user_matrix.compile
+        user_matrix.data.must_equal [{ column: :name, value: 'Anton', title: 'First name' },
+                                     { column: :email, value: 'test@site.com', title: nil },
+                                     { column: :last_name, value: '', title: nil }]
+      end
     end
   end
 end
