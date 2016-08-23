@@ -1,6 +1,6 @@
 # DataMatrix
 **[this is not implemented gem]**
-Simple way for creating grids for any data objects and for any frameworks
+Simple way for creating grids for any data objects and for any frameworks.
 
 ## Installation
 Add this line to your application's Gemfile:

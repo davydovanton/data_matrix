@@ -1,8 +1,9 @@
 <table>
   <% unless title.empty?  %>
     <tr>
-      <th>Name</th>
-      <th>Telephone</th>
+      <% title.each do |value| %>
+        <th><%= value %></th>
+      <% end %>
     </tr>
   <% end %>
 
