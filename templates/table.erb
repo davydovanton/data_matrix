@@ -1,0 +1,15 @@
+<table>
+  <% unless title.empty?  %>
+    <tr>
+      <th>Name</th>
+      <th>Telephone</th>
+    </tr>
+  <% end %>
+
+  <% attributes.each do |attribute, value|%>
+    <tr>
+      <td><%= attribute %></td>
+      <td><%= value %></td>
+    </tr>
+  <% end %>
+</table>
