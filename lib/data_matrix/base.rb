@@ -31,5 +31,9 @@ module DataMatrix
         EMPTY_STRING
       end
     end
+
+    def to_html
+      HTMLRender.new(data, [])
+    end
   end
 end

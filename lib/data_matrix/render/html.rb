@@ -12,9 +12,7 @@ module DataMatrix
     end
 
     def call
-      result = ERB.new(File.read(TEMPLATE_PATH)).result binding
-      p result
-      result
+      ERB.new(File.read(TEMPLATE_PATH)).result(binding)
     end
   end
 end

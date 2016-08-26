@@ -31,15 +31,12 @@ Create matrix object in your controller. Your matrix object takes any data objec
 ```ruby
 # in controller
 
-# ...
 @user_matrix = UserMatrix.new(@user)
 @user_matrix.compile
 ```
 
 Call your matrix object in view or terminal.
 ```ruby
-# in view
-
 @user_matrix.to_html
 @user_matrix.to_xml
 @user_matrix.to_csv
