@@ -19,8 +19,8 @@ module DataMatrix
     end
 
     def compile
-      self.class.attributes.each do |attr, title|
-        data << { column: attr, value: call_attribute(attr), title: title }
+      @data = self.class.attributes.map do |attr, title|
+        { column: attr, value: call_attribute(attr), title: title }
       end
     end
 
